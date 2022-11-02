@@ -6,6 +6,9 @@ DISK=/.bottlerocket/rootfs/dev/nvme2n1
 # Mounts from this mount point will propagate accross mount namespaces
 MOUNT_POINT=/.bottlerocket/rootfs/mnt/ephemeral
 
+# Format disk
+mkfs.ext4 -F ${DISK}
+
 # We make sure the target mount points exist
 mkdir -p $MOUNT_POINT
 
