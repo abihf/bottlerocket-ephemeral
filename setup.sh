@@ -20,7 +20,7 @@ mount "${DISK}" "${MOUNT_POINT}"
 
 for state in containerd docker kubelet ; do
   state_dir="${ROOT_PATH}/var/lib/${state}"
-  if [ -d "${state_dir}" ]; do
+  if [ -d "${state_dir}" ]; then
     mv "${state_dir}" "${MOUNT_POINT}/"
   else
     mkdir -p "${MOUNT_POINT}/${state}"
