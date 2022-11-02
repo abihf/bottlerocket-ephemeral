@@ -24,8 +24,8 @@ for state in containerd docker kubelet ; do
     cp -a "${state_dir}" "${MOUNT_POINT}/"
   else
     mkdir -p "${MOUNT_POINT}/${state}"
+    mkdir "${state_dir}"
   fi
-  mkdir "${state_dir}"
   mount --rbind "${MOUNT_POINT}/${state}" "${state_dir}"
   mount --make-rshared "${state_dir}"
 done
