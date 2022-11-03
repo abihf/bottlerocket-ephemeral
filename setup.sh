@@ -9,6 +9,9 @@ DISK="${ROOT_PATH}/dev/nvme2n1"
 # Mounts from this mount point will propagate accross mount namespaces
 MOUNT_POINT="${ROOT_PATH}/mnt/ephemeral"
 
+# Check disk
+[ -b "${DISK}" ] || exit 0
+
 # Format disk
 mkfs.ext4 -F "${DISK}"
 
